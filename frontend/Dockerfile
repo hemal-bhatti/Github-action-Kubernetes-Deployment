@@ -4,15 +4,15 @@ WORKDIR /app
 
 RUN apk add --no-cache nginx bash
 
-COPY frontend/package*.json ./
+COPY package*.json ./
 
 RUN npm install
 
-COPY frontend/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-COPY frontend/start.sh /start.sh
+COPY start.sh /start.sh
 
-COPY frontend/ ./
+COPY . ./
 
 RUN npm run build && npm install -g serve
 
