@@ -56,7 +56,7 @@ jobs:
 
       - name: set contexts In kubectl
         run: kubectl config get-contexts
-
+  
       - name: curr working
         run: pwd
 
