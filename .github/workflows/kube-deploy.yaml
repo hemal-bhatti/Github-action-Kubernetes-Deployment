@@ -30,15 +30,15 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
-      - name: go to Backend directory
-        run: cd ../backend
+      # - name: go to Backend directory
+      #   run: cd ../backend
         
-      - name: build Image from Docker File
-        run: docker build -t node:latest .
-        with:
-          working-directory: backend
-          push: true
-          tags: backend:latest
+      # - name: build Image from Docker File
+      #   run: docker build -t node:latest .
+      #   with:
+      #     working-directory: backend
+      #     push: true
+      #     tags: backend:latest
   # deploy:
   #   runs-on: self-hosted
   #   needs: build
