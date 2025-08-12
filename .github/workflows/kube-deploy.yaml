@@ -21,14 +21,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: go to Frontend directory
-        run: cd frontend
-      - name: build Image from Docker File
-        run: docker build -t react:latest .  
-        with:
-          working-directory: frontend
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+      # - name: go to Frontend directory
+      #   run: cd frontend
+      # - name: build Image from Docker File
+      #   run: docker build -t react:latest .  
+      #   with:
+      #     working-directory: frontend
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
       # - name: go to Backend directory
       #   run: cd ../backend
