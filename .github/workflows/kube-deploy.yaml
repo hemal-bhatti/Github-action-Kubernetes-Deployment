@@ -57,8 +57,11 @@ jobs:
       - name: set contexts In kubectl
         run: kubectl config get-contexts
 
-      - name: apply Frontend Deployment
-        run: kubectl apply -f https://github.com/hemal-bhatti/Github-action-Kubernetes-Deployment/blob/main/kubernetes/frontend-react/react-deploy.yml
+      - name: curr working
+        run: pwd
+
+      # - name: apply Frontend Deployment
+      #   run: kubectl apply -f https://github.com/hemal-bhatti/Github-action-Kubernetes-Deployment/blob/main/kubernetes/frontend-react/react-deploy.yml
       # - name: go to Frontend directory
       #   run: cd frontend/
       # - name: build Image from Docker File
