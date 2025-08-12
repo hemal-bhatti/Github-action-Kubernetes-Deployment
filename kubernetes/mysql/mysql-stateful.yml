@@ -1,42 +1,40 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mystatefulset
+  name: mysql
+  labels:
+    app: mysql
 spec:
   selector:
     matchLabels:
       app: mysql
-  serviceName: mysql-svc
-  replicas: 1
+      tier: backend
+  serviceName: mysql
+  replicas: 2
+  minReadySeconds: 10
   template:
     metadata:
       labels:
         app: mysql
+        tier: backend
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
-      - name: mysql
-        image: mysql:latest
-        ports:
-        - containerPort: 3306
+      - image: mysql:5.6
+        name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
-              key: mysql-password
+              name: mysql-pass
+              key: password
+        ports:
+        - containerPort: 3306
+          name: mysql
         volumeMounts:
-        - name: data
+        - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
       volumes:
-      - name: data
+      - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pvc
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: data
-  #   spec:
-  #     accessModes: [ "ReadWriteMany" ]
-  #     storageClassName: mysql-sc
-  #     resources:
-  #       requests:
-  #         storage: 300Mi
+          claimName: mysql-pv-claim

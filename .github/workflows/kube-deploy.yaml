@@ -80,6 +80,26 @@ jobs:
       - name: apply Backend Deployment
         run: kubectl apply -f kubernetes/backend-node/node-deploy.yml 
 
+      - name: apply mysql secret
+        run: kubectl apply -f kubernetes/mysql/mysql-secret.yml
+
+      - name: apply mysql persistent volume
+        run: kubectl apply -f kubernetes/mysql/mysql-pv.yml 
+
+      - name: apply mysql persistent volume claim
+        run: kubectl apply -f kubernetes/mysql/mysql-pvc.yml
+
+      - name: apply mysql service
+        run: kubectl apply -f kubernetes/mysql/mysql-heandlessSvc.yml'
+      
+      - name: apply mysql statefulset
+        run: kubectl apply -f kubernetes/mysql/mysql-stateful.yml
+
+
+
+
+
+
 
 
       # - name: go to Frontend directory
