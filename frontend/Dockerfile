@@ -8,11 +8,11 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+COPY frontend/nginx/nginx.conf /etc/nginx/nginx.conf
 
-COPY start.sh /start.sh
+COPY frontend/start.sh /start.sh
 
-COPY .  .
+COPY frontend/ ./
 
 RUN npm run build && npm install -g serve
 
