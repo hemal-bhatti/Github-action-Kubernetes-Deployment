@@ -10,9 +10,11 @@ COPY package*.json ./
 
 RUN npm install && npm install -g pm2
 
-COPY app/ app/
-COPY server.js .
-COPY runner.sh .
+COPY app/ backend-app/
+
+COPY server.js ./server.js
+
+COPY runner.sh ./runner.sh
 
 RUN chmod +x runner.sh
 
