@@ -23,10 +23,13 @@ jobs:
         run: cd frontend/
       - name: build Image from Docker File
         run: docker build -f frontend/Dockerfile -t react:latest .
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/react:latest
+      - name: push Frontend Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/react:latest 
+
+        # with:
+        #   context: .
+        #   push: true
+        #   tags: ${{ secrets.DOCKER_USERNAME }}/react:latest
 
       - name: run echo
         run: echo "Frontend Docker image built successfully"
