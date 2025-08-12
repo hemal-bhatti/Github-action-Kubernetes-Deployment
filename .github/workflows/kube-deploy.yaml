@@ -24,7 +24,9 @@ jobs:
         with:
           context: frontend/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/react:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME:$GITHUB_RUN_NUMBER
+        env:
+          IMAGE_NAME: react
 
       - name: run echo
         run: echo "Frontend Docker image built successfully"
