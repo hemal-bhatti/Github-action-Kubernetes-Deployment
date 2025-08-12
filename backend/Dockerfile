@@ -10,7 +10,7 @@ COPY package*.json ./
 
 RUN npm install && npm install -g pm2
 
-COPY app/ backend-app/
+COPY app/ app/
 
 COPY server.js ./server.js
 
