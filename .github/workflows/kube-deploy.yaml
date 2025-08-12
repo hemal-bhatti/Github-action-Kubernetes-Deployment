@@ -90,7 +90,7 @@ jobs:
         run: kubectl apply -f kubernetes/mysql/mysql-pvc.yml
 
       - name: apply mysql service
-        run: kubectl apply -f kubernetes/mysql/mysql-heandlessSvc.yml'
+        run: kubectl apply -f kubernetes/mysql/mysql-heandlessSvc.yml
       
       - name: apply mysql statefulset
         run: kubectl apply -f kubernetes/mysql/mysql-stateful.yml
