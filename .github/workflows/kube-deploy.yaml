@@ -22,7 +22,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/build-push-action@v6
         with:
-          context: frontend/Dockerfile
+          context: /frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/react:latest
 
