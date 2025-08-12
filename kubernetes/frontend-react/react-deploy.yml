@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: react
-        image: uday0710/react-frontend:06
+        image: __DOCKER_REPOSITORY__/__F_IMAGE_NAME__:__IMAGE_TAG__
         resources:
           limits:
             memory: "128Mi"

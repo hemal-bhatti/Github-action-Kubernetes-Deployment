@@ -25,9 +25,11 @@ jobs:
         with:
           context: frontend/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.F_IMAGE_NAME }}:${{ github.run_number }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.F_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
         env:
           F_IMAGE_NAME: react
+          DOCKER_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}
+          IMAGE_TAG: ${{ github.run_number }}
 
 
 
@@ -36,9 +38,11 @@ jobs:
         with:
           context: backend/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.B_IMAGE_NAME }}:${{ github.run_number }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.B_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
         env:
           B_IMAGE_NAME: node
+          DOCKER_REPOSITORY: ${{ secrets.DOCKER_USERNAME }}
+          IMAGE_TAG: ${{ github.run_number }}
 
 
 
@@ -52,6 +56,9 @@ jobs:
 
       - name: set contexts In kubectl
         run: kubectl config get-contexts
+
+      - name: apply Frontend Deployment
+        run: kubectl apply -f https://github.com/hemal-bhatti/Github-action-Kubernetes-Deployment/blob/main/kubernetes/frontend-react/react-deploy.yml
       # - name: go to Frontend directory
       #   run: cd frontend/
       # - name: build Image from Docker File
