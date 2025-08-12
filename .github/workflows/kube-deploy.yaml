@@ -31,8 +31,8 @@ jobs:
 
       - name: Decode kubectl
         run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
-          chmod 600 $HOME/.kube/config
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
+          chmod 600 ~/.kube/config
 
       - name: run echo
         run: echo "kubectl setting up successfully"
