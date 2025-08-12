@@ -57,8 +57,6 @@ jobs:
       - name: set contexts In kubectl
         run: kubectl config get-contexts
   
-      - name: curr working
-        run: pwd
 
       - name: updating Frontend Deployment image tag
         run: sed -i 's/latest/${{ github.run_number }}/g' kubernetes/frontend-react/react-deploy.yml
