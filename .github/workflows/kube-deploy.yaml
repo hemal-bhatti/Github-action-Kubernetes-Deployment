@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: go to Frontend directory
-        run: cd frontend
+        run: cd frontend/
       - name: build Image from Docker File
         run: docker build -t react:latest .  
 
