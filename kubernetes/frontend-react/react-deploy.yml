@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: react
-        image: hemal45/react:30 # __DOCKER_REPOSITORY__/__F_IMAGE_NAME__:__IMAGE_TAG__
+        image: __DOCKER_REPOSITORY__/__F_IMAGE_NAME__:__IMAGE_TAG__  # hemal45/react:30
         resources:
           requests:
             memory: "64Mi"
