@@ -60,12 +60,19 @@ jobs:
       - name: curr working
         run: pwd
 
+      - name: updating Frontend Deployment image tag
+        run: sed -i 's/30/${{ github.run_number }}/g' kubernetes/frontend-react/react-deploy.yml
+
 
       - name: apply service for Frontend
         run: kubectl apply -f kubernetes/frontend-react/react-svc.yml
 
       - name: apply Frontend Deployment
         run: kubectl apply -f kubernetes/frontend-react/react-deploy.yml
+
+
+      - name: updating Backend Deployment image tag
+        run: sed -i 's/30/${{ github.run_number }}/g' kubernetes/backend-node/node-deploy.yml
 
       - name: apply service for Backend
         run: kubectl apply -f kubernetes/backend-node/node-svc.yml

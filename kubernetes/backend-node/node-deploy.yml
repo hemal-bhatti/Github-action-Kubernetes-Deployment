@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: node
-        image: __DOCKER_REPOSITORY__/__B_IMAGE_NAME__:__IMAGE_TAG__  # hemal45/node-backend:<tag>
+        image: hemal45/node-backend:30
         resources:
           requests:
             memory: "64Mi"
