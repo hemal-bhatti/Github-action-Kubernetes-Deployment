@@ -24,7 +24,7 @@ jobs:
         with:
           context: frontend/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME:$GITHUB_RUN_NUMBER
+          tags: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME:${{ github.run_number }}
         env:
           IMAGE_NAME: react
 
