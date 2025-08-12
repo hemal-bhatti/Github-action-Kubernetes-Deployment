@@ -28,8 +28,17 @@ jobs:
         env:
           IMAGE_NAME: react
 
+
+      - name: Decode kubectl
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
       - name: run echo
-        run: echo "Frontend Docker image built successfully"
+        run: echo "kubectl setting up successfully"
+
+      - name: set contexts In kubectl
+        run: echo "Setting up kubectl contexts"
 
       # - name: go to Frontend directory
       #   run: cd frontend/
