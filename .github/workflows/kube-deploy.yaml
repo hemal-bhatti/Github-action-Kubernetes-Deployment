@@ -22,7 +22,7 @@ jobs:
       - name: go to Frontend directory
         run: cd frontend/
       - name: build Image from Docker File
-        run: docker build -t react:latest .  
+        run: docker build -f frontend/Dockerfile -t react:latest .
 
       - name: run echo
         run: echo "Frontend Docker image built successfully"
