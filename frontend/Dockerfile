@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apk add --no-cache nginx bash
 
-COPY package*.json ./
+COPY frontend/package*.json ./
 
 RUN npm install
 
