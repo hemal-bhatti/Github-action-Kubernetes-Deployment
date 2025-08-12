@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: react
-        image: hemal45/react:30
+        image: hemal45/react:latest
         resources:
           requests:
             memory: "64Mi"
