@@ -23,9 +23,12 @@ jobs:
         run: cd frontend/
       - name: build Image from Docker File
         run: docker build -f frontend/Dockerfile -t react:latest .
+
       - name: push Frontend Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/react:latest 
-
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
         # with:
         #   context: .
         #   push: true
