@@ -35,10 +35,10 @@ jobs:
           chmod 600 ~/.kube/config
 
       - name: run echo
-        run: echo "kubectl setting up successfully"
+        run: echo "Running echo command to verify kubectl setup"
 
       - name: set contexts In kubectl
-        run: echo "Setting up kubectl contexts"
+        run: kubectl config get-contexts
 
       # - name: go to Frontend directory
       #   run: cd frontend/
