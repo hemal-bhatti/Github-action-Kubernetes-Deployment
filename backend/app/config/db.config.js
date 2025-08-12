@@ -1,5 +1,5 @@
 export default {
-    HOST: "mysql",
+    HOST: "mysql.default.svc.cluster.local",
     USER: "root",
     PASSWORD: "password",
     DB: "tutorial",
