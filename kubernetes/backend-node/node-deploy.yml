@@ -13,8 +13,11 @@ spec:
     spec:
       containers:
       - name: node
-        image: uday0710/node-backend:02
+        image: __DOCKER_REPOSITORY__/__B_IMAGE_NAME__:__IMAGE_TAG__  # hemal45/node-backend:<tag>
         resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
           limits:
             memory: "128Mi"
             cpu: "500m"
