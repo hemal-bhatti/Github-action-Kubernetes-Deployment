@@ -10,7 +10,7 @@ spec:
       app: mysql
       tier: backend
   serviceName: mysql
-  replicas: 2
+  replicas: 1
   minReadySeconds: 10
   template:
     metadata:
@@ -20,7 +20,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - image: mysql:8.0
+      - image: mysql:latest
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
