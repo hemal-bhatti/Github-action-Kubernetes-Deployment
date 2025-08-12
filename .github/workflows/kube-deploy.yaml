@@ -64,8 +64,8 @@ jobs:
         run: sed -i 's/latest/${{ github.run_number }}/g' kubernetes/frontend-react/react-deploy.yml
 
 
-      - name: apply service for Frontend
-        run: kubectl apply -f kubernetes/frontend-react/react-svc.yml
+      # - name: apply service for Frontend
+      #   run: kubectl apply -f kubernetes/frontend-react/react-svc.yml
 
       - name: apply Frontend Deployment
         run: kubectl apply -f kubernetes/frontend-react/react-deploy.yml
@@ -74,23 +74,23 @@ jobs:
       - name: updating Backend Deployment image tag
         run: sed -i 's/latest/${{ github.run_number }}/g' kubernetes/backend-node/node-deploy.yml
 
-      - name: apply service for Backend
-        run: kubectl apply -f kubernetes/backend-node/node-svc.yml
+      # - name: apply service for Backend
+      #   run: kubectl apply -f kubernetes/backend-node/node-svc.yml
 
       - name: apply Backend Deployment
         run: kubectl apply -f kubernetes/backend-node/node-deploy.yml 
 
-      - name: apply mysql secret
-        run: kubectl apply -f kubernetes/mysql/mysql-secret.yml
+      # - name: apply mysql secret
+      #   run: kubectl apply -f kubernetes/mysql/mysql-secret.yml
 
-      - name: apply mysql persistent volume
-        run: kubectl apply -f kubernetes/mysql/mysql-pv.yml 
+      # - name: apply mysql persistent volume
+      #   run: kubectl apply -f kubernetes/mysql/mysql-pv.yml 
 
-      - name: apply mysql persistent volume claim
-        run: kubectl apply -f kubernetes/mysql/mysql-pvc.yml
+      # - name: apply mysql persistent volume claim
+      #   run: kubectl apply -f kubernetes/mysql/mysql-pvc.yml
 
-      - name: apply mysql service
-        run: kubectl apply -f kubernetes/mysql/mysql-heandlessSvc.yml
+      # - name: apply mysql service
+      #   run: kubectl apply -f kubernetes/mysql/mysql-heandlessSvc.yml
       
-      - name: apply mysql statefulset
-        run: kubectl apply -f kubernetes/mysql/mysql-stateful.yml
+      # - name: apply mysql statefulset
+      #   run: kubectl apply -f kubernetes/mysql/mysql-stateful.yml
